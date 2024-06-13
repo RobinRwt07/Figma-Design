@@ -64,12 +64,18 @@ body {
             position: absolute;
             top: 22px;
             right: 15px;
+
+            @media (min-width:640px) {
+                display: none;
+            }
         }
 
         & .links {
             display: flex;
             flex-direction: column;
             gap: 50px;
+
+
         }
 
         & .links ul {
@@ -82,6 +88,10 @@ body {
                 font-size: var(--mediumFont);
                 color: var(--secondary);
                 padding-inline: 20px;
+
+                &:hover {
+                    color: var(--primary);
+                }
             }
         }
 
@@ -140,14 +150,21 @@ body {
             font-family: "Oswald", sans-serif;
             font-size: clamp(32px, 3vw, 56px);
             font-weight: bold;
+            line-height: 1;
             color: var(--secondary);
         }
 
         &>.item1 .second {
+            line-height: .4;
             font-family: "Oswald", sans-serif;
             font-size: clamp(60px, 6vw, 120px);
             font-weight: bold;
             color: var(--primary);
+            margin-bottom: 40px;
+
+            @media (width >=1024px) {
+                line-height: .6;
+            }
         }
 
         &>.item1 p {
@@ -165,7 +182,8 @@ body {
 
         &>.item1 button {
             width: clamp(200px, 15vw, 352px);
-            height: 70px;
+            height: 65px;
+            cursor: pointer;
             font-family: "Oswald", sans-serif;
             font-size: 20px;
             margin-top: 40px;
@@ -173,7 +191,17 @@ body {
             border: 3px solid var(--secondary);
             color: var(--secondary);
             border-radius: 17px;
-            appearance: none;
+            outline-offset: 2px;
+
+
+            &:hover {
+                color: var(--primary);
+                border: 3px solid var(--primary);
+            }
+
+            &:focus {
+                outline: 3px solid var(--secondary);
+            }
 
         }
 
@@ -183,7 +211,14 @@ body {
             grid-template-columns: repeat(auto-fill, 259px);
             justify-content: center;
             grid-template-rows: repeat(1, 156px);
-            gap: 79px;
+            gap: 30px;
+
+
+
+            @media (width >=1024px) {
+                gap: 50px;
+                justify-content: flex-start;
+            }
 
             &::-webkit-scrollbar {
                 display: none;
@@ -192,11 +227,21 @@ body {
             &>.images {
                 border: 6px solid var(--secondary);
                 border-radius: 11px;
+                overflow: hidden;
+
+                &:hover {
+                    border: 6px solid var(--primary);
+                }
 
                 &>img {
                     width: 100%;
                     height: 100%;
                     border-radius: 11px;
+                    transition: all .5s linear;
+
+                    &:hover {
+                        scale: 1.5;
+                    }
                 }
             }
         }
@@ -208,16 +253,12 @@ body {
 
             gap: 20px;
 
-            &>span {
+            &>h2 {
                 font-family: "Oswald", sans-serif;
-                font-size: 42px;
+                font-size: clamp(32px, 1vw, 42px);
                 font-weight: bold;
                 color: var(--secondary);
 
-            }
-
-            &>img {
-                margin-top: 10px;
             }
         }
 
@@ -240,6 +281,7 @@ body {
 
             @media (min-width:1024px) {
                 & {
+                    padding: 50px 40px;
                     flex-direction: row;
                 }
             }
@@ -295,11 +337,13 @@ body {
                 & div {
                     max-width: 480px;
                     border: 6px solid var(--secondary);
+                    box-shadow: 0px 0px 5px 2px var(--darkBlue);
+                    border-radius: 25px;
 
                     &>img {
                         width: 100%;
                         height: 100%;
-                        border-radius: 25px;
+                        border-radius: 20px;
                     }
 
                 }
